@@ -28,7 +28,7 @@ android {
     }
 
     buildTypes.each {
-        it.buildConfigField 'STRING', 'BASE_URL', BASE_URL
+        it.buildConfigField 'String', 'BASE_URL', BASE_URL
     }
 
     compileOptions {
@@ -37,6 +37,11 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
     }
 }
 
