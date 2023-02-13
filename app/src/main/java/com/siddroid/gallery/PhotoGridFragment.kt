@@ -36,6 +36,7 @@ class PhotoGridFragment : Fragment() {
         manager.gapStrategy = StaggeredGridLayoutManager.GAP_HANDLING_MOVE_ITEMS_BETWEEN_SPANS
         binding.rvPhotos.layoutManager = manager
         binding.rvPhotos.setHasFixedSize(true)
+        binding.rvPhotos.setItemViewCacheSize(10);
         binding.rvPhotos.addItemDecoration(DividerItemDecoration(context, StaggeredGridLayoutManager.VERTICAL))
         return binding.root
     }
