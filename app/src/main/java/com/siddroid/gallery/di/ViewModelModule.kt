@@ -14,7 +14,7 @@ import dagger.hilt.android.scopes.FragmentScoped
 class ViewModelModule {
     @Provides
     @FragmentScoped
-    fun providePhotoGridAdapter(@ApplicationContext context: Context): PhotoGridAdapter {
-        return PhotoGridAdapter(context)
+    fun providePhotoGridAdapter(): PhotoGridAdapter {
+        return PhotoGridAdapter()
     }
 }
