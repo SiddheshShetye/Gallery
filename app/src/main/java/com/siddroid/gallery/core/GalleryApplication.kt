@@ -11,7 +11,7 @@ class GalleryApplication: Application() {
         super.onCreate()
         val p: Picasso = Picasso.Builder(this)
             .build()
-        p.setIndicatorsEnabled(true)
+        p.setIndicatorsEnabled(false)
         p.isLoggingEnabled = true
         try {
             Picasso.setSingletonInstance(p)

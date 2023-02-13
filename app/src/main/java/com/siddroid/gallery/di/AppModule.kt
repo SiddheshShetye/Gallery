@@ -1,4 +1,4 @@
-package com.siddroid.gallery.core
+package com.siddroid.gallery.di
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -7,6 +7,7 @@ import com.siddroid.gallery.StateMapper
 import com.siddroid.gallery.data.GalleryRepository
 import com.siddroid.gallery.data.GalleryRepositoryImpl
 import com.siddroid.gallery.data.GalleryService
+import com.siddroid.gallery.data.ConnectivityStatus
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -54,12 +55,6 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideInternetConnectivity(connectivityManager: ConnectivityManager): InternetConnectivity {
-        return InternetConnectivity(connectivityManager)
-    }
-
-    @Provides
-    @Singleton
     fun provideConnectivityManager(@ApplicationContext context: Context): ConnectivityManager {
         return context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     }
@@ -82,4 +77,9 @@ class AppModule {
         return StateMapper()
     }
 
+    @Provides
+    @Singleton
+    fun provideNetworkTracker(connectivityManager: ConnectivityManager): ConnectivityStatus {
+        return ConnectivityStatus(connectivityManager)
+    }
 }
