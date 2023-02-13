@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -17,7 +19,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class PhotoGridFragment : Fragment() {
+class PhotoGridFragment : Fragment(), OnPhotoClickListener {
 
     private lateinit var binding: FragmentPhotoGridBinding
     private val viewModel: MainActivityViewModel by viewModels()
@@ -46,7 +48,6 @@ class PhotoGridFragment : Fragment() {
         setObserver()
         binding.rvPhotos.adapter = adapter
         viewModel.getImages()
-
     }
 
     private fun setObserver() {
@@ -58,5 +59,16 @@ class PhotoGridFragment : Fragment() {
             }
         }
 
+    }
+
+    override fun onPhotoClicked(index: Int) {
+        activity?.supportFragmentManager?.commit {
+            setReorderingAllowed(true)
+            addToBackStack("photo_details")
+            arguments = Bundle().apply {
+                putInt("photo_index", index)
+            }
+            replace<PhotoDetailsFragment>(R.id.container)
+        }
     }
 }

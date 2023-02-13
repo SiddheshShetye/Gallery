@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add<PhotoGridFragment>(R.id.container)
+                add<PhotoGridFragment>(R.id.container, "photo_grid")
             }
         }
     }

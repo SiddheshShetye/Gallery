@@ -1,18 +1,23 @@
 package com.siddroid.gallery
 
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.siddroid.gallery.databinding.ItemPhotoBinding
 import com.squareup.picasso.Picasso
+import javax.inject.Inject
 
-
-class PhotoGridAdapter(): Adapter<PhotoViewHolder>() {
+class PhotoGridAdapter @Inject constructor(val clickListener: OnPhotoClickListener): Adapter<PhotoViewHolder>() {
+    private lateinit var binding: ItemPhotoBinding
     private val dataList: MutableList<GridItem> = mutableListOf()
+//    @ActivityContext lateinit var clickHandler: OnPhotoClickListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
-        return PhotoViewHolder(ItemPhotoBinding.inflate(LayoutInflater.from(parent.context)))
+        binding = DataBindingUtil.inflate<ItemPhotoBinding>(LayoutInflater.from(parent.context), R.layout.item_photo, parent, false)
+        return PhotoViewHolder(binding, clickListener)
     }
 
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
@@ -23,6 +28,7 @@ class PhotoGridAdapter(): Adapter<PhotoViewHolder>() {
             it.height = (it.width * ratio).toInt()
             holder.photoBinding.imvThumb.layoutParams = it
             holder.photoBinding.imvThumb.ratio = gridItem.ratio
+
         }
         holder.bindDetails(gridItem)
     }
@@ -38,12 +44,18 @@ class PhotoGridAdapter(): Adapter<PhotoViewHolder>() {
     }
 }
 
-class PhotoViewHolder(val photoBinding: ItemPhotoBinding): ViewHolder(photoBinding.root) {
+class PhotoViewHolder(val photoBinding: ItemPhotoBinding, private val clickHandler: OnPhotoClickListener): ViewHolder(photoBinding.root) {
 
     fun bindDetails(gridItem: GridItem) {
         Picasso.get()
                 .load(gridItem.url)
             .placeholder(R.drawable.ic_launcher_background)
                 .into(photoBinding.imvThumb)
+        photoBinding.setVariable(BR.index, adapterPosition)
+        if (clickHandler is OnPhotoClickListener) {
+            photoBinding.setVariable(BR.clickHandler, clickHandler)
+        }
+        photoBinding.executePendingBindings()
+
     }
 }

@@ -5,10 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.siddroid.gallery.data.GalleryRepository
 import com.siddroid.gallery.data.ImageModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,8 +21,6 @@ class MainActivityViewModel @Inject constructor(private val galleryRepository: G
         viewModelScope.launch {
             galleryData = galleryRepository.getImageList()
             galleryData?.let { galleryDataList -> _gridDataFlow.update { mapper.mapImageModelTpGridViewState(galleryDataList) }  }
-
-            System.out.println(galleryData.toString())
         }
     }
 
