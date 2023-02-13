@@ -1,4 +1,7 @@
 package com.siddroid.gallery.core
 
-class GalleryApplication {
-}
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+class GalleryApplication: Application()
