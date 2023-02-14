@@ -1,6 +1,13 @@
 package com.siddroid.gallery
 
+import com.siddroid.gallery.core.ConnectivityStatus
 import com.siddroid.gallery.data.*
+import com.siddroid.gallery.ui.MainActivityViewModel
+import com.siddroid.gallery.ui.StateMapper
+import com.siddroid.gallery.ui.model.GridItem
+import com.siddroid.gallery.ui.model.GridViewState
+import com.siddroid.gallery.ui.model.PhotoDetailItem
+import com.siddroid.gallery.ui.model.PhotoDetailsViewState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.*

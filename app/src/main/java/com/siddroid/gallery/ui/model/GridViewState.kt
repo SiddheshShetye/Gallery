@@ -1,4 +1,4 @@
-package com.siddroid.gallery
+package com.siddroid.gallery.ui.model
 
 data class GridViewState(val imageUrlList: List<GridItem>)
 

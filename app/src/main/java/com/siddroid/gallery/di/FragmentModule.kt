@@ -1,11 +1,11 @@
 package com.siddroid.gallery.di
 
 import android.content.Context
-import com.siddroid.gallery.MainActivity
-import com.siddroid.gallery.OnPhotoClickListener
-import com.siddroid.gallery.adapters.PhotoGridAdapter
-import com.siddroid.gallery.PhotoGridFragment
-import com.siddroid.gallery.adapters.PhotoDetailsAdapter
+import com.siddroid.gallery.ui.MainActivity
+import com.siddroid.gallery.ui.OnPhotoClickListener
+import com.siddroid.gallery.ui.adapters.PhotoGridAdapter
+import com.siddroid.gallery.ui.fragments.PhotoGridFragment
+import com.siddroid.gallery.ui.adapters.PhotoDetailsAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,5 +1,9 @@
-package com.siddroid.gallery
+package com.siddroid.gallery.ui
 
+import com.siddroid.gallery.ui.model.GridItem
+import com.siddroid.gallery.ui.model.GridViewState
+import com.siddroid.gallery.ui.model.PhotoDetailItem
+import com.siddroid.gallery.ui.model.PhotoDetailsViewState
 import com.siddroid.gallery.data.ImageModel
 
 class StateMapper {

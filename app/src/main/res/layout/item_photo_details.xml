@@ -3,7 +3,7 @@
     <data>
         <variable
             name="photoDetails"
-            type="com.siddroid.gallery.PhotoDetailItem" />
+            type="com.siddroid.gallery.ui.model.PhotoDetailItem" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
     android:layout_height="match_parent"

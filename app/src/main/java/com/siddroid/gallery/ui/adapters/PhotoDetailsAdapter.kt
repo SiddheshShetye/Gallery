@@ -1,4 +1,4 @@
-package com.siddroid.gallery.adapters
+package com.siddroid.gallery.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.siddroid.gallery.PhotoDetailItem
+import com.siddroid.gallery.ui.model.PhotoDetailItem
 import com.siddroid.gallery.R
 import com.siddroid.gallery.databinding.ItemPhotoDetailsBinding
 import com.squareup.picasso.Callback

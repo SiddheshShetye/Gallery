@@ -1,4 +1,4 @@
-package com.siddroid.gallery.adapters
+package com.siddroid.gallery.ui.adapters
 
 
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.siddroid.gallery.BR
-import com.siddroid.gallery.GridItem
-import com.siddroid.gallery.OnPhotoClickListener
+import com.siddroid.gallery.ui.model.GridItem
+import com.siddroid.gallery.ui.OnPhotoClickListener
 import com.siddroid.gallery.R
 import com.siddroid.gallery.databinding.ItemPhotoBinding
 import com.squareup.picasso.Callback

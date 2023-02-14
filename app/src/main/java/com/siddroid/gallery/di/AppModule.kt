@@ -3,11 +3,11 @@ package com.siddroid.gallery.di
 import android.content.Context
 import android.net.ConnectivityManager
 import com.siddroid.gallery.BuildConfig
-import com.siddroid.gallery.StateMapper
+import com.siddroid.gallery.ui.StateMapper
 import com.siddroid.gallery.data.GalleryRepository
 import com.siddroid.gallery.data.GalleryRepositoryImpl
 import com.siddroid.gallery.data.GalleryService
-import com.siddroid.gallery.data.ConnectivityStatus
+import com.siddroid.gallery.core.ConnectivityStatus
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

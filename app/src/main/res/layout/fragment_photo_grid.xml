@@ -5,6 +5,6 @@
     android:id="@+id/rvPhotos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".ui.MainActivity"
     tools:itemCount="10"
     tools:listitem="@layout/item_photo"/>

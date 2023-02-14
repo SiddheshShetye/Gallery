@@ -1,9 +1,11 @@
-package com.siddroid.gallery
+package com.siddroid.gallery.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import com.siddroid.gallery.ui.fragments.PhotoGridFragment
+import com.siddroid.gallery.R
 import com.siddroid.gallery.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

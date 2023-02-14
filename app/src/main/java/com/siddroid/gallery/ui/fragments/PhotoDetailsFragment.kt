@@ -1,4 +1,4 @@
-package com.siddroid.gallery
+package com.siddroid.gallery.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,8 +10,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-import com.siddroid.gallery.adapters.PhotoDetailsAdapter
+import com.siddroid.gallery.ui.adapters.PhotoDetailsAdapter
 import com.siddroid.gallery.databinding.FragmentPhotoDetailsBinding
+import com.siddroid.gallery.ui.MainActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject

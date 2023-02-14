@@ -1,4 +1,4 @@
-package com.siddroid.gallery
+package com.siddroid.gallery.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,8 +12,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.siddroid.gallery.adapters.PhotoGridAdapter
+import com.siddroid.gallery.ui.OnPhotoClickListener
+import com.siddroid.gallery.R
+import com.siddroid.gallery.ui.adapters.PhotoGridAdapter
 import com.siddroid.gallery.databinding.FragmentPhotoGridBinding
+import com.siddroid.gallery.ui.MainActivityViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -47,12 +50,12 @@ class PhotoGridFragment : Fragment(), OnPhotoClickListener {
             dividerHorizontal.setDrawable(drawable)
         }
         binding.rvPhotos.addItemDecoration(dividerHorizontal)
+        setObserver()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setObserver()
         binding.rvPhotos.adapter = adapter
     }
 

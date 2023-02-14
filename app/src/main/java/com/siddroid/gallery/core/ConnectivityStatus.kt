@@ -1,4 +1,4 @@
-package com.siddroid.gallery.data
+package com.siddroid.gallery.core
 
 import android.net.ConnectivityManager
 import android.net.Network
