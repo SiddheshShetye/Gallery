@@ -86,8 +86,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:layout_gravity="right|bottom"
-            android:background="@android:color/transparent"/>
+            android:layout_gravity="end|bottom"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/collapse" />
 
 
     </com.ms.square.android.expandabletextview.ExpandableTextView>
