@@ -26,7 +26,6 @@ class ConnectivityStatus @Inject constructor(private val connectivityManager: Co
                 trySend(NetworkStatus.Unavailable).isSuccess
             }
         }
-
         val request = NetworkRequest.Builder()
             .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
             .build()
