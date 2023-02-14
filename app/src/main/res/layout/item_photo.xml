@@ -16,5 +16,8 @@
     android:scaleType="fitXY"
     android:onClick="@{() -> clickHandler.onPhotoClicked(index)}"
     tools:src="@drawable/ic_launcher_background"
-    android:contentDescription="@string/thumbnail" />
+    android:contentDescription="@string/thumbnail"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"/>
 </layout>

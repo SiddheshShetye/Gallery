@@ -71,6 +71,8 @@ dependencies {
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
 
     implementation 'com.ms-square:expandableTextView:0.1.4'
+    implementation 'com.otaliastudios:zoomlayout:1.9.0'
+
 
     testImplementation 'android.arch.core:core-testing:1.1.1'
     testImplementation 'junit:junit:4.13.2'
