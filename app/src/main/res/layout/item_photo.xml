@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="index"
@@ -9,15 +10,31 @@
             name="clickHandler"
             type="com.siddroid.gallery.OnPhotoClickListener" />
     </data>
-<ImageView xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/imvThumb"
+            app:layout_constraintEnd_toEndOf="@id/imvThumb"
+            app:layout_constraintTop_toTopOf="@id/imvThumb"
+
+            />
+<ImageView
     android:id="@+id/imvThumb"
-    android:layout_width="match_parent"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:scaleType="fitXY"
     android:onClick="@{() -> clickHandler.onPhotoClicked(index)}"
-    tools:src="@drawable/ic_launcher_background"
     android:contentDescription="@string/thumbnail"
     android:clickable="true"
     android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"/>
+    android:foreground="?attr/selectableItemBackground"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

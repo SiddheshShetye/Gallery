@@ -60,7 +60,9 @@ class PhotoGridFragment : Fragment(), OnPhotoClickListener {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.gridDataFlow.collect {
-                    adapter.updateList(it.imageUrlList)
+                    withContext(Dispatchers.Main) {
+                        adapter.updateList(it.imageUrlList)
+                    }
                 }
             }
         }

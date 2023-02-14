@@ -1,6 +1,7 @@
 package com.siddroid.gallery.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.library.baseAdapters.BR
@@ -9,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.siddroid.gallery.PhotoDetailItem
 import com.siddroid.gallery.R
 import com.siddroid.gallery.databinding.ItemPhotoDetailsBinding
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
+import java.lang.Exception
 
 class PhotoDetailsAdapter: Adapter<PhotoDetailViewHolder>() {
 
@@ -37,7 +40,21 @@ class PhotoDetailsAdapter: Adapter<PhotoDetailViewHolder>() {
 class PhotoDetailViewHolder(private val binding: ItemPhotoDetailsBinding): ViewHolder(binding.root) {
     fun bindData(photoDetails: PhotoDetailItem) {
         binding.setVariable(BR.photoDetails, photoDetails)
-        Picasso.get().load(photoDetails.photoUrl).resize(800,0).centerInside().into(binding.imvPhoto)
+        binding.progress.visibility = View.VISIBLE
+        Picasso.get()
+            .load(photoDetails.photoUrl)
+            .resize(800,0)
+            .centerInside()
+            .into(binding.imvPhoto, object: Callback {
+                override fun onSuccess() {
+                    binding.progress.visibility = View.GONE
+                }
+
+                override fun onError(e: Exception?) {
+                    binding.progress.visibility = View.GONE
+                }
+
+            })
         binding.executePendingBindings()
     }
 }
